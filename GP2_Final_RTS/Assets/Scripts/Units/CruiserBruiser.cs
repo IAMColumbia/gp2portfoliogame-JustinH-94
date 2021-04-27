@@ -16,9 +16,9 @@ public class CruiserBruiser : Unit
         attackDamage = 50;
         attackSpeed = 5f;
         buildTime = 6.0f;
-        this.transform.position = new Vector3(spawnLocation.transform.position.x, 20f, spawnLocation.transform.position.z);
+        //this.transform.position = new Vector3(spawnLocation.transform.position.x, 20f, spawnLocation.transform.position.z);
         base.Start();
-        agent.baseOffset = 9.7f;
+        agent.baseOffset = 11.38f;
     }
 
     // Update is called once per frame

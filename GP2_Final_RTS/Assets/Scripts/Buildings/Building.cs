@@ -9,11 +9,12 @@ public class Building : MonoBehaviour
     protected State state;
 
     public static Component component;
-    public GameObject panel;
+    protected GameObject panel;
     public GameObject[] unitObject;
     public GameObject SpawnLoc;
-    public Text[] text;
-    protected string[] unitNames;
+    protected Text[] textUI;
+    protected Text[] textNames;
+    protected string[] buttonText;
     protected string Name;
     protected int Health;
     protected bool isDestroyed;
@@ -24,10 +25,10 @@ public class Building : MonoBehaviour
     protected virtual void Start()
     {
         isDestroyed = false;
+        textNames = Resources.FindObjectsOfTypeAll<Text>();
         state = State.Active;
         GetComponent<TakeDamage>().SetHealth(Health);
     }
-
     // Update is called once per frame
     protected virtual void Update()
     {
@@ -59,12 +60,12 @@ public class Building : MonoBehaviour
         {
             GameObject a = Instantiate(unitObject[unitIndex]) as GameObject;
             a.transform.position = SpawnLoc.transform.position;
-            if (isPlayer)
+            if (this.gameObject.tag == "PlayerBase")
             {
                 GameObject.Find("PlayerSystem").GetComponent<PlayerInfo>().numOfUnits.Add(a);
                 a.GetComponent<Unit>().isPlayer = true;
             }
-            else
+            else if (this.gameObject.tag == "EnemyBase")
             {
                 GameObject.Find("EnemySystem").GetComponent<EnemySystem>().numOfUnits.Add(a);
                 a.GetComponent<Unit>().isPlayer = false;
@@ -76,31 +77,12 @@ public class Building : MonoBehaviour
         }
     }
 
-    public void UnitOnButton()
+    public virtual void UnitOnButton()
     {
-        if (isBarrackSelected)
+        for (int i = 0; i < unitObject.Length; i++)
         {
-            for (int i = 0; i < unitObject.Length; i++)
-            {
-                text[i].text = unitObject[i].GetComponent<Unit>().name;
-            }
+            textUI[i] = GameObject.Find(buttonText[i]).GetComponent<Text>();
+            textUI[i].text = unitObject[i].GetComponent<Unit>().name;
         }
     }
-
-    public void BuildingSelected(bool isSelected, string building)
-    {
-        if (isSelected)
-        {
-            panel.SetActive(true);
-            isBarrackSelected = true;
-            UnitOnButton();
-        }
-        else
-        {
-            panel.SetActive(false);
-            isBarrackSelected = false;
-        }
-    }
-
-
 }

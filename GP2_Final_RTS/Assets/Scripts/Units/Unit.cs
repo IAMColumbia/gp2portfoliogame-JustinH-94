@@ -37,6 +37,7 @@ public class Unit : MonoBehaviour
 
     public float moveSpeed;
     public float rotSpeed;
+    public GameObject buildingCreatedAt;
     public GameObject spawnLocation;
     public GameObject waitLocation;
     public GameObject enemyBaseLoc;
@@ -51,9 +52,10 @@ public class Unit : MonoBehaviour
         counter = EnemyBuildings.Count - 1;
         state = State.spawn;
         agent = GetComponent<NavMeshAgent>();
+        this.transform.position = buildingCreatedAt.GetComponent<Building>().SpawnLoc.transform.position;
         agent.enabled = false;
         GetComponent<TakeDamage>().SetHealth(health);
-        agent.baseOffset = .6f;
+        agent.baseOffset = 1f;
         Invoke("EnableNavMeshAgent", 0.025f);
     }
 
@@ -83,7 +85,7 @@ public class Unit : MonoBehaviour
 
     protected virtual void StartSearch()
     {
-        if(GameObject.Find("PlayerSystem").GetComponent<PlayerInfo>().numOfUnits.Count >=2)
+        if(GameObject.Find("PlayerSystem").GetComponent<PlayerInfo>().numOfUnits.Count >=2 && this.gameObject.tag =="PlayerUnit")
         {
             this.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
             this.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
@@ -264,7 +266,7 @@ public class Unit : MonoBehaviour
 
     protected void BaseAttacked()
     {
-        if (PlayerInfo.isBaseAttacked)
+        if (PlayerInfo.isBaseAttacked && this.gameObject.tag == "PlayerUnit")
         {
             state = State.defend;
         }

@@ -2,19 +2,23 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Barracks
+    - Base
     - BirdPlane
     - BlockingBlock
+    - Cameracontrol
+    - CreatingBuilding
     - CruiserBruiser
-    - EnemyBarrack
     - EnemyBlockingBlock
     - EnemyFearDaSphere
-    - EnemyRadiostation
     - EnemySystem
     - FearDaSphere
     - PlayerClick
     - PlayerInfo
     - RadioStation
+    - SkilledBuild
     - TakeDamage
+    - UnitMove
+    - UnitSelector
     Unity.ProBuilder.dll:
     - UnityEngine.ProBuilder.ProBuilderMesh
     Unity.Rider.Editor.dll:
@@ -64,49 +68,55 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11176}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 11178}
     - Class: 114
-      Script: {instanceID: 11374}
+      Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11432}
+      Script: {instanceID: 11262}
     - Class: 114
-      Script: {instanceID: 11484}
+      Script: {instanceID: 11378}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11486}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11520}
     - Class: 114
-      Script: {instanceID: 11724}
+      Script: {instanceID: 11726}
     - Class: 114
-      Script: {instanceID: 11998}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12090}
+      Script: {instanceID: 12000}
     - Class: 114
-      Script: {instanceID: 12232}
+      Script: {instanceID: 12188}
     - Class: 114
-      Script: {instanceID: 12514}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12692}
+      Script: {instanceID: 12626}
     - Class: 114
-      Script: {instanceID: 12728}
+      Script: {instanceID: 12696}
     - Class: 114
-      Script: {instanceID: 12932}
+      Script: {instanceID: 12732}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 13162}
+      Script: {instanceID: 12938}
     - Class: 114
-      Script: {instanceID: 13250}
+      Script: {instanceID: 13016}
     - Class: 114
-      Script: {instanceID: 13310}
+      Script: {instanceID: 13166}
     - Class: 114
-      Script: {instanceID: 13366}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13652}
+      Script: {instanceID: 13256}
     - Class: 114
-      Script: {instanceID: 13682}
+      Script: {instanceID: 13316}
+    - Class: 114
+      Script: {instanceID: 13372}
+    - Class: 114
+      Script: {instanceID: 13658}
+    - Class: 114
+      Script: {instanceID: 13688}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -130,6 +140,18 @@ ScriptsOnlyBuild:
     - Class: 238
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 5f1752ed2092162f016c19510c28a8b9
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -156,7 +178,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: b22cf63ee47a90ae3349a13be096cb3d
+      Hash: 27719442136ac9afbe2bb3548946b1aa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RadioStation
@@ -180,7 +202,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: 36d719b1d760ac48d15d6f4c1bd52d22
+      Hash: 693078b78ced8dfb5f40d51a61ba76a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FearDaSphere
@@ -196,12 +218,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
-  - hash:
-      serializedVersion: 2
-      Hash: aeb62f729c52c814dec86c47dcac1471
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: 499fd23433e68e265d153aa6b95d0047
@@ -240,7 +256,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 686f2cda1729ea42044887ec0c8180b6
+      Hash: 32bf9764deaf2d725a9c0a8d12fe96b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerInfo
@@ -294,7 +310,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 75dfe73e4aa36270e342bb9247e04674
+      Hash: b9108cb7a3420bd8404e1bd335fc6858
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyBlockingBlock
@@ -354,7 +370,7 @@ ScriptsOnlyBuild:
     className: EventSystem
   - hash:
       serializedVersion: 2
-      Hash: b22cf63ee47a90ae3349a13be096cb3d
+      Hash: 27719442136ac9afbe2bb3548946b1aa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Building
@@ -378,19 +394,25 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
+      Hash: 32bf9764deaf2d725a9c0a8d12fe96b1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SystemManagement
+  - hash:
+      serializedVersion: 2
       Hash: 8dc90e648ac06f43bdd31ac9fa8f4579
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: b22cf63ee47a90ae3349a13be096cb3d
+      Hash: b1a6af9261ebd05f9bffc402fbc313ca
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EnemyBarrack
+    className: SkilledBuild
   - hash:
       serializedVersion: 2
-      Hash: 62e112706ac94944600120b5f331627b
+      Hash: 8e356b0b07eac217f5bf10c484d7ed57
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerClick
@@ -438,16 +460,16 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 5f1752ed2092162f016c19510c28a8b9
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
-  - hash:
-      serializedVersion: 2
       Hash: f84d945e5e1ca985698660fc26e9657f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: cd7a4454ee3e66ecb4fd5bd1c046f348
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnitSelector
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -456,7 +478,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: a6b210775c95f9c235f613b92a088234
+      Hash: e77a5d99cd6d7f0080a2f1bcef8164c8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemySystem
@@ -468,7 +490,7 @@ ScriptsOnlyBuild:
     className: ColorPalette
   - hash:
       serializedVersion: 2
-      Hash: b22cf63ee47a90ae3349a13be096cb3d
+      Hash: 27719442136ac9afbe2bb3548946b1aa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Barracks
@@ -516,19 +538,19 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnitMove
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: b22cf63ee47a90ae3349a13be096cb3d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyRadiostation
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 27719442136ac9afbe2bb3548946b1aa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Base
@@ -540,7 +562,7 @@ ScriptsOnlyBuild:
     className: Entity
   - hash:
       serializedVersion: 2
-      Hash: 36d719b1d760ac48d15d6f4c1bd52d22
+      Hash: 693078b78ced8dfb5f40d51a61ba76a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CruiserBruiser
@@ -570,19 +592,25 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 36d719b1d760ac48d15d6f4c1bd52d22
+      Hash: 372964d3d885a9c75355adfed9908f07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CreatingBuilding
+  - hash:
+      serializedVersion: 2
+      Hash: 693078b78ced8dfb5f40d51a61ba76a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyFearDaSphere
   - hash:
       serializedVersion: 2
-      Hash: 36d719b1d760ac48d15d6f4c1bd52d22
+      Hash: 693078b78ced8dfb5f40d51a61ba76a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BirdPlane
   - hash:
       serializedVersion: 2
-      Hash: 36d719b1d760ac48d15d6f4c1bd52d22
+      Hash: 693078b78ced8dfb5f40d51a61ba76a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Unit
@@ -684,7 +712,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 36d719b1d760ac48d15d6f4c1bd52d22
+      Hash: 693078b78ced8dfb5f40d51a61ba76a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BlockingBlock
@@ -709,4 +737,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/GP2_RTS/RTS.unity
-  playerPath: E:/UnityProjects/GP2Final/GP2_Final_RTS/Build/M1_POC/MonoBleedingEdge/GP2_Final_RTS.exe
+  playerPath: E:/UnityProjects/GP_II FinalGame/gp2portfoliogame-JustinH-94/artifactReleases/3FirstBuild/ArtifcatRelease/GP2_Final_RTS.exe

@@ -8,8 +8,21 @@ public class RadioStation : Building
     {
         Name = "Radio Station";
         Health = 400;
-        unitNames = new string[] { "BirdPlane", "CruiserBruiser" };
         state = State.Active;
+        
+    }
+
+    protected override void Start()
+    {
+        panel.SetActive(false);
+        AddText();
+        base.Start();
+    }
+
+    void AddText()
+    {
+        textUI[0] = GameObject.Find("/Canvas/RS Panel/Button/Text").GetComponent<Text>();
+        textUI[1] = GameObject.Find("/Canvas/RS Panel/second button/Text").GetComponent<Text>();
     }
     protected override void Update()
     {
@@ -22,6 +35,6 @@ public class RadioStation : Building
                 DestroyBuilding();
                 break;
         }
-        UnitOnButton();
+        //UnitOnButton();
     }
 }

@@ -17,7 +17,7 @@ public class FearDaSphere : Unit
         health = 100;
         attackDamage = 25;
         buildTime = 5.0f;
-        this.transform.position = spawnLocation.transform.position;
+        //this.transform.position = spawnLocation.transform.position;
         rb = GetComponent<Rigidbody>();
         base.Start();
     }
