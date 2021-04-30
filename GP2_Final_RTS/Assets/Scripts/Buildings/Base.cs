@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Base : Building
 {
-    bool setActive;
     public Base()
     {
         Name = "Base";
@@ -15,14 +14,7 @@ public class Base : Building
     {
         textUI = new Text[unitObject.Length];
         panel = GameObject.Find("Canvas/Base Panel");
-        panel.SetActive(false);
-        AddText();
         base.Start();
-    }
-
-    void AddText()
-    {
-        buttonText[0] = "/Canvas/Base Panel/Button /Text";
     }
     // Update is called once per frame
     protected override void Update()
@@ -41,7 +33,7 @@ public class Base : Building
     public override void UnitOnButton()
     {
         textUI = new Text[unitObject.Length];
-        textUI[0] = GameObject.Find("Canvas/Base Panel/Button/Text").GetComponent<Text>();
+        textUI[0] = GameObject.Find("Canvas/Base Panel/Button/SkilledBuild").GetComponent<Text>();
         textUI[0].text = unitObject[0].GetComponent<Unit>().name;
     }
 }

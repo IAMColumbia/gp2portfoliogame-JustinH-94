@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySystem : SystemManagement
 {
+    public static List<GameObject> EnemiesInBase = new List<GameObject>();
     public enum State { Prepare, Attack, Defend, Lost}
     public State state;
     public static bool isPrepared;
@@ -23,6 +24,7 @@ public class EnemySystem : SystemManagement
 
     private void Update()
     {
+        Debug.Log(numOfUnits.Count);
         switch (state)
         {
             case State.Prepare:
@@ -39,6 +41,7 @@ public class EnemySystem : SystemManagement
         }
         AllBuildingDestroyed();
         UnitAtLimit();
+        
     }
 
     void SetUpUnits()
@@ -92,12 +95,17 @@ public class EnemySystem : SystemManagement
 
     void GameOver()
     {
-        Debug.Log("GameOver, the player wins");
+        if (state == State.Lost)
+            System.GetComponent<GameOverScript>().GameOver("AI");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag =="PlayerUnit")
+        if (other.gameObject.tag == "PlayerUnit")
+        {
             isBaseAttacked = true;
+            EnemiesInBase.Add(other.gameObject);
+
+        }
     }
 }

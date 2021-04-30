@@ -13,33 +13,50 @@ public class EnemyBlockingBlock : Unit
         name = "E.BlockingBlock";
         damageType = "Melee";
         moveSpeed = 2.0f;
-        attackRange = 5.0f;
+        attackRange = 12.0f;
         rotSpeed = 2.0f;
         health = 150;
         attackSpeed = 4f;
         attackDamage = 30;
         buildTime = 8.0f;
-        this.transform.position = spawnLocation.transform.position;
         base.Start();
+        this.transform.position = spawnLocation;
+        agent.baseOffset = 0.5f;
     }
     public void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * fovDist, Color.red, 1, true);
-        SearchForEnemy();
+        Debug.DrawRay(transform.position, transform.forward * fovDist, Color.blue, 1, true);
         switch (state)
         {
             case State.spawn:
                 MoveToWaitArea();
                 break;
+            case State.wait:
+                StartSearch();
+                break;
+            case State.search:
+                HeadToEnemyBase();
+                break;
             case State.attack:
-                ChargeAtEnemy();
+                AttackTargetUnit();
+                break;
+            case State.attackBuilding:
+                AttackTargetBuilding();
+                break;
+            case State.retreat:
                 break;
             case State.defend:
                 ReturnToBase();
                 break;
         }
-        EnemyAtBase();
         HealthDetector();
+        RemoveBuildingFromList();
+        RemoveUnitFromList();
+        DontSeeEnemy();
+        AttackFromUnitToBuilding();
+        SeesEnemy();
+        StateAttackBuilding();
+        BaseAttacked();
     }
 
     protected override void MoveToWaitArea()
@@ -53,12 +70,6 @@ public class EnemyBlockingBlock : Unit
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "E.BlockingBlock")
-            agent.isStopped = true;
-    }
-
     void EnemyAtBase()
     {
         if (EnemySystem.isBaseAttacked)
@@ -69,25 +80,12 @@ public class EnemyBlockingBlock : Unit
 
     protected override void ReturnToBase()
     {
-        direction = spawnLocation.transform.position - this.transform.position;
-        agent.SetDestination(spawnLocation.transform.position);
+        direction = spawnLocation - this.transform.position;
+        agent.SetDestination(spawnLocation);
 
         if (direction.magnitude < 4.0f )
         {
             RandWalk();
-        }
-    }
-
-    protected override void SeeEnemy()
-    {
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.forward), out hit) && direction.magnitude < fovDist)
-        {
-            if ((hit.collider.gameObject.tag == "PlayerUnit" || hit.collider.gameObject.tag == "PlayerBase"))
-            {
-                Debug.Log(hit.collider.gameObject.tag.ToString());
-                currentTarget = hit.collider.gameObject;
-                state = State.attack;
-            }
         }
     }
 }

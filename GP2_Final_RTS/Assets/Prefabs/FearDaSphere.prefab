@@ -115,6 +115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 846944118276831885}
+  - {fileID: 7688808711638625727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,12 +178,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca6c1416b76a8847be906f0a3a64b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  currentHealth: 0
   currentTarget: {fileID: 0}
   moveSpeed: 0
   rotSpeed: 0
   buildingCreatedAt: {fileID: 5346035935394859891, guid: da34dd8cd4f7a514f9eae757aae608bf,
-    type: 3}
-  spawnLocation: {fileID: 915058966840509735, guid: 751b77f434549e24eb89a6b6cdbdd9bf,
     type: 3}
   waitLocation: {fileID: 5593515912247976987, guid: 6c16ff644d39e7a46bd4a26be18606f6,
     type: 3}
@@ -275,3 +276,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b1e2ba0713137448707f7b8e1185d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2680516947443684328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7688808711638625727}
+  - component: {fileID: 7179203781403787167}
+  m_Layer: 0
+  m_Name: FieldOfView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7688808711638625727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680516947443684328}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 846944119248986596}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7179203781403787167
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680516947443684328}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 15
+  m_Height: 30
+  m_Direction: 1
+  m_Center: {x: 0, y: 5, z: 0}

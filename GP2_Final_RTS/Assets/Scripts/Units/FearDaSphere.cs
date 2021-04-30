@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FearDaSphere : Unit
 {
-
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -13,7 +12,7 @@ public class FearDaSphere : Unit
         moveSpeed = 3.0f;
         attackRange = 10.0f;
         rotSpeed = 2.0f;
-        attackSpeed = 1;
+        attackSpeed = 2;
         health = 100;
         attackDamage = 25;
         buildTime = 5.0f;
@@ -25,34 +24,26 @@ public class FearDaSphere : Unit
     // Update is called once per frame
     public void Update()
     {
-        CheckForNullGO();
-        Debug.DrawRay(transform.position, transform.forward * fovDist, Color.blue, 1, true);
-        SearchForEnemy();
+        Debug.Log(state);
+        Debug.Log(targetBuildings.Count);
+        Debug.Log(targetUnits.Count);
         switch (state)
         {
-            case State.spawn:
-                MoveToWaitArea();
-                break;
-            case State.wait:
-                StartSearch();
-                break;
-            case State.search:
-                HeadToEnemyBase();
-                break;
-            case State.attackUnit:
-                NoDetection();
-                ChargeAtEnemy();
+            case State.attack:
+                AttackTargetUnit();
                 break;
             case State.attackBuilding:
-                AimBuilding();
+                AttackTargetBuilding();
                 break;
-            case State.retreat:
+            case State.moving:
                 break;
-            case State.defend:
-                ReturnToBase();
-                break;
-        }
+        }       
         HealthDetector();
-        BaseAttacked();
+        RemoveBuildingFromList();
+        RemoveUnitFromList();
+        DontSeeEnemy();
+        AttackFromUnitToBuilding();
+        SeesEnemy();
+        StateAttackBuilding();
     }
 }

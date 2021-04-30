@@ -14,25 +14,32 @@ public class Building : MonoBehaviour
     public GameObject SpawnLoc;
     protected Text[] textUI;
     protected Text[] textNames;
-    protected string[] buttonText;
     protected string Name;
     protected int Health;
     protected bool isDestroyed;
     protected bool isBarrackSelected;
     protected bool isRadioSelected;
+    protected bool creatingUnit;
+    protected float buildTime;
+    protected int index;
     public bool isPlayer;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
         isDestroyed = false;
         textNames = Resources.FindObjectsOfTypeAll<Text>();
+        for(int i =0; i < textNames.Length; i++)
+        {
+            textNames[i].text = textNames[i].name;
+        }
         state = State.Active;
+        //SpawnLoc.transform.position = new Vector3(this.transform.position.x-5f, this.transform.position.y, this.transform.position.z);
         GetComponent<TakeDamage>().SetHealth(Health);
     }
     // Update is called once per frame
     protected virtual void Update()
     {
-        
     }
 
     protected bool BuildingDestroyed()
@@ -59,7 +66,6 @@ public class Building : MonoBehaviour
         if (!PlayerInfo.atUnitCap || !EnemySystem.atUnitCap)
         {
             GameObject a = Instantiate(unitObject[unitIndex]) as GameObject;
-            a.transform.position = SpawnLoc.transform.position;
             if (this.gameObject.tag == "PlayerBase")
             {
                 GameObject.Find("PlayerSystem").GetComponent<PlayerInfo>().numOfUnits.Add(a);
@@ -69,6 +75,7 @@ public class Building : MonoBehaviour
             {
                 GameObject.Find("EnemySystem").GetComponent<EnemySystem>().numOfUnits.Add(a);
                 a.GetComponent<Unit>().isPlayer = false;
+                a.transform.position = SpawnLoc.transform.position;
             }
         }
         else
@@ -79,10 +86,5 @@ public class Building : MonoBehaviour
 
     public virtual void UnitOnButton()
     {
-        for (int i = 0; i < unitObject.Length; i++)
-        {
-            textUI[i] = GameObject.Find(buttonText[i]).GetComponent<Text>();
-            textUI[i].text = unitObject[i].GetComponent<Unit>().name;
-        }
     }
 }

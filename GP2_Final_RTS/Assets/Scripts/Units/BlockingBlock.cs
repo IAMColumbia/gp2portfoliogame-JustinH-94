@@ -22,35 +22,27 @@ public class BlockingBlock : Unit
     // Update is called once per frame
     public void Update()
     {
-        CheckForNullGO();
-        Debug.DrawRay(transform.position, transform.forward * fovDist, Color.blue, 1, true);
-        SearchForEnemy();
+        Debug.Log(state);
+        Debug.Log(targetBuildings.Count);
+        Debug.Log(targetUnits.Count);
         switch (state)
         {
-            case State.spawn:
-                MoveToWaitArea();
-                break;
-            case State.wait:
-                StartSearch();
-                break;
-            case State.search:
-                HeadToEnemyBase();
-                break;
-            case State.attackUnit:
-                NoDetection();
-                ChargeAtEnemy();
+            case State.attack:
+                AttackTargetUnit();
                 break;
             case State.attackBuilding:
-                AimBuilding();
+                AttackTargetBuilding();
                 break;
-            case State.retreat:
-                break;
-            case State.defend:
-                ReturnToBase();
+            case State.moving:
                 break;
         }
-        BaseAttacked();
         HealthDetector();
+        RemoveBuildingFromList();
+        RemoveUnitFromList();
+        DontSeeEnemy();
+        AttackFromUnitToBuilding();
+        SeesEnemy();
+        StateAttackBuilding();
     }
 
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 public class SystemManagement : MonoBehaviour
 {
     public List<GameObject> numOfUnits = new List<GameObject>();
-    public static List<GameObject> numOfBuildings = new List<GameObject>();
+    public List<GameObject> numOfBuildings = new List<GameObject>();
     public static bool isBaseAttacked;
     public static bool atUnitCap;
-
+    public GameObject System;
     public GameObject Barrack, RadioStation, Base;
     protected const int unitCap = 30;
     protected bool AreAllBuildingsDestroyed;

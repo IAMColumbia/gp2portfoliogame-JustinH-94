@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInfo : SystemManagement
 {
-    Unit unit;
     public static int unitNum = 0;
     public static List<GameObject> EnemiesInVicinity = new List<GameObject>();
     const int UnitLimit = 20;
@@ -17,7 +16,6 @@ public class PlayerInfo : SystemManagement
         numOfBuildings.Add(RadioStation);
         numOfBuildings.Add(Base);
         unitTag = "PlayerUnit";
-        
     }
 
     // Update is called once per frame
@@ -26,8 +24,7 @@ public class PlayerInfo : SystemManagement
         UnitOnFloor();
         AllBuildingDestroyed();
         AllEnemiesDestroyed();
-        GameOver();
-        KillCount = 0;
+        GameOver(); Debug.Log(numOfBuildings.Count);
     }
 
     void AllEnemiesDestroyed()
@@ -59,7 +56,7 @@ public class PlayerInfo : SystemManagement
     void GameOver()
     {
         if (isAllBuildingDestroyed)
-            Debug.Log("GameOver, the Enemy wins");
+            System.GetComponent<GameOverScript>().GameOver("AI");
     }
 
     private void OnTriggerEnter(Collider other)

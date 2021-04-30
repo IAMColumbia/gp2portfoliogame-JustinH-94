@@ -8,21 +8,14 @@ public class RadioStation : Building
     {
         Name = "Radio Station";
         Health = 400;
-        state = State.Active;
-        
+        state = State.Active; 
     }
 
     protected override void Start()
     {
-        panel.SetActive(false);
-        AddText();
+        panel = GameObject.Find("Canvas/RS Panel");
+        //panel.SetActive(false);
         base.Start();
-    }
-
-    void AddText()
-    {
-        textUI[0] = GameObject.Find("/Canvas/RS Panel/Button/Text").GetComponent<Text>();
-        textUI[1] = GameObject.Find("/Canvas/RS Panel/second button/Text").GetComponent<Text>();
     }
     protected override void Update()
     {
@@ -36,5 +29,16 @@ public class RadioStation : Building
                 break;
         }
         //UnitOnButton();
+    }
+
+    public override void UnitOnButton()
+    {
+        for (int i = 0; i < textNames.Length; i++)
+        {
+            if (textNames[i].name == "BirdPlane")
+                textNames[i].text = "BirdPlane";
+            if (textNames[i].name == "BruiserCruiser")
+                textNames[i].text = "BruiserCruiser";
+        }
     }
 }

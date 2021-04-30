@@ -19,7 +19,7 @@ public class UnitSelector : MonoBehaviour
     public Vector3 halfExtents;
 
     [Header("Selected units")]
-    public List<GameObject> selectedUnits = new List<GameObject>();
+    public static List<GameObject> selectedUnits = new List<GameObject>();
 
     [Header("GameObject selection box")]
     public GameObject selectorBox;
@@ -61,6 +61,27 @@ public class UnitSelector : MonoBehaviour
         {
             MoveUnits(DoRay());
         }
+        ReachedPosition();
+        RemoveDeadObjects();
+    }
+
+    void RemoveDeadObjects()
+    {
+        foreach(GameObject g in selectedUnits)
+        {
+            if (g.GetComponent<TakeDamage>().Health <= 0)
+                selectedUnits.Remove(g);
+        }
+    }
+
+    void ReachedPosition()
+    {
+        foreach(GameObject g in selectedUnits)
+        {
+            Vector3 direction = moveToPos - g.transform.position;
+            if (direction.magnitude <= 5f && (g.GetComponent<Unit>().state != Unit.State.attack || g.GetComponent<Unit>().state != Unit.State.attackBuilding))
+                g.GetComponent<Unit>().state = Unit.State.wait;
+        }
     }
 
     void HandleRectangle()
@@ -95,7 +116,6 @@ public class UnitSelector : MonoBehaviour
         {
             if(hitInfo.collider.gameObject.name == "SkilledBuild")
             {
-                Debug.Log("Selected");
                 UnitMove u = hitInfo.collider.GetComponent<UnitMove>();
                 u.SelectUnit();
                 u.CalculateOffSet(rectCenter);
@@ -128,6 +148,7 @@ public class UnitSelector : MonoBehaviour
         moveToPos = pos;
         foreach(GameObject g in selectedUnits)
         {
+            g.GetComponent<Unit>().state = Unit.State.moving;
             UnitMove u = g.GetComponent<UnitMove>();
             u.MoveToSpot(pos);
         }

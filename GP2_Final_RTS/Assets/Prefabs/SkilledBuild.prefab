@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 1580999655744181879}
   - component: {fileID: 1580999655744181832}
   - component: {fileID: 1580999655744181872}
-  - component: {fileID: 1580999655744181874}
   - component: {fileID: 1580999655744181875}
   - component: {fileID: 1580999655744181877}
   - component: {fileID: 1580999655744181876}
+  - component: {fileID: 8316228733540430644}
   m_Layer: 8
   m_Name: SkilledBuild
   m_TagString: PlayerUnit
@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580999655744181873}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34, y: 11.2, z: 48.78}
+  m_LocalPosition: {x: 1000, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1815442264580059178}
@@ -125,20 +125,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1580999655744181874
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580999655744181873}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5076798556035486163, guid: ea3e107f719fbd540b7d7f8e3b60ca48, type: 3}
 --- !u!114 &1580999655744181875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,10 +162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eda7416c0d6a664db6a4001de5bc9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  currentHealth: 0
   currentTarget: {fileID: 0}
   moveSpeed: 0
   rotSpeed: 0
-  spawnLocation: {fileID: 0}
+  buildingCreatedAt: {fileID: 3830374991201005241, guid: e3609a9b4a180f645b0e0d84cf867e64,
+    type: 3}
   waitLocation: {fileID: 0}
   enemyBaseLoc: {fileID: 0}
   layerMask:
@@ -195,10 +184,25 @@ MonoBehaviour:
   - {fileID: 5346035935394859891, guid: da34dd8cd4f7a514f9eae757aae608bf, type: 3}
   - {fileID: 3010847080935592370, guid: 3d584e9b5c6651a42be74efd1d80c610, type: 3}
   panel: {fileID: 7091687285684399696, guid: 8e1a0720279742d48b188a7773c759ff, type: 3}
+  btn: []
   text:
   - {fileID: 6411335618323381986, guid: f88f07257abe9b44ba1858838c13513b, type: 3}
   - {fileID: 7397618673826350246, guid: ad9871cf9bdbbf148b23d9b5907f519e, type: 3}
   - {fileID: 2902083876713013122, guid: 8f2d30eb38623924fb276569b910802f, type: 3}
+--- !u!136 &8316228733540430644
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580999655744181873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.81
+  m_Height: 6.42
+  m_Direction: 1
+  m_Center: {x: 0.00000011920929, y: 1.82, z: -0.00000017881393}
 --- !u!1 &1815442263174637421
 GameObject:
   m_ObjectHideFlags: 0
