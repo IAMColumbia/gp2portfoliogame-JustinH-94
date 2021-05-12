@@ -93,35 +93,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 12238}
+      Script: {instanceID: 12240}
     - Class: 114
-      Script: {instanceID: 12440}
+      Script: {instanceID: 12442}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 12634}
     - Class: 114
-      Script: {instanceID: 12702}
+      Script: {instanceID: 12704}
     - Class: 114
-      Script: {instanceID: 12738}
+      Script: {instanceID: 12740}
     - Class: 114
-      Script: {instanceID: 12916}
+      Script: {instanceID: 12918}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12946}
     - Class: 114
-      Script: {instanceID: 13022}
+      Script: {instanceID: 13024}
     - Class: 114
-      Script: {instanceID: 13172}
+      Script: {instanceID: 13174}
     - Class: 114
-      Script: {instanceID: 13260}
+      Script: {instanceID: 13262}
     - Class: 114
-      Script: {instanceID: 13320}
+      Script: {instanceID: 13322}
     - Class: 114
-      Script: {instanceID: 13376}
+      Script: {instanceID: 13378}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 13664}
     - Class: 114
-      Script: {instanceID: 13692}
+      Script: {instanceID: 13694}
     - Class: 114
-      Script: {instanceID: 22946}
+      Script: {instanceID: 13764}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -174,11 +174,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12000}
     - Class: 114
-      Script: {instanceID: 13172}
+      Script: {instanceID: 12218}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 13174}
     - Class: 114
-      Script: {instanceID: 20930}
+      Script: {instanceID: 13664}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -472,6 +472,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkilledBuild
+  - hash:
+      serializedVersion: 2
+      Hash: 4df52aa923d2bd139d7cdbbe435ca014
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuScript
   - hash:
       serializedVersion: 2
       Hash: 11e71447aa3348edfea05883cece0fd3
@@ -798,12 +804,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 4df52aa923d2bd139d7cdbbe435ca014
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MenuScript
-  - hash:
-      serializedVersion: 2
       Hash: 2244024a9dca8be04307d81020634033
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -812,5 +812,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/GP2_RTS/RTS.unity
-  playerPath: E:/UnityProjects/GP_II FinalGame/gp2portfoliogame-JustinH-94/artifactReleases/3FirstBuild/Artifact
-    Release Ver 3/GP2_Final_RTS.exe
+  playerPath: E:/UnityProjects/GP_II FinalGame/gp2portfoliogame-JustinH-94/artifactReleases/4FinalBuild/GP2_Final_RTS.exe

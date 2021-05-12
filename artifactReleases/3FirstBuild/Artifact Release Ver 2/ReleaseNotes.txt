@@ -5,14 +5,21 @@ Release Notes version 3 Final
 	  switch places as to make it look like the unit turned into the base of the building. This triggers and method that has a timer and the longer the timer goes on. The bigger the cube gets until 
 	  it finally turns into the building. 
 	- The Unit will get destroyed upon building finished being built.
-	- Error: Has not been turned into a prefab yet, so newly implemented units wont be have the same functionality as the first unit.
 - Created The Selector Box
 	- Finished the Selector Box that selects all units within bounds of the green square. Currently they're able to move to specific location designated from Player.
-	- Future implementation: Player inputs "A" and Right-Click so that the units will attack enemies if come across any come into field of view of the units.
 - Reworking Implementation of instantiating Units and buildings:
 	- Previously, previously stayed within the hierarchy of the game and not as prefabs. Because they stayed like that, when the object was destroyed, it wouldn't be able to be instantiated again.
 	  Making the gameobject inaccessible. So nearly everything has been become a prefab. 
 	- Issue now is getting the UI to work with newly instantiated objects.
+- Trigger Colliders:
+	- All units have a trigger collider to detect enemy units rather than using raycast. I found this easier to do since units could potentially miss each other even if they're nearby.
+	- If a trigger occurs, that gameobject will be added to either a target unit or building list of which the will be attacked in sequential order.
+	- I made it so that units will attack other units first before attacking buildings.
+- Current Bugs: 
+	- The unit BirdPlane has issues sometimes of not being able to be selected and becomes stagnant. Still working on the issue with that.
+	- Only one of each building can be used at a time. So if the player made two Barracks, then only the first one is operational. The panel for the second Barrack won't appear
+	- Only one SkilledBuild can build a time. If the player makes a second SkilledBuild, then it won't build until the first skilled build finishes building.
+
 - Future Implementations:
 	- Some sort of Pattern, but haven't figured out which pattern to use yet. (Thinking Object Pool, but don't think that pattern would be necessary for this)
 	- A work on enemy AI system to act as some what of proper AI.

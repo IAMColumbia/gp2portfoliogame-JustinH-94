@@ -18,6 +18,7 @@ public class PlayerClick : MonoBehaviour
                 return;
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+            Debug.Log(hitInfo.collider.transform.position);
             if (hit)
             {
                 Debug.Log(hitInfo.collider.name.ToString());
